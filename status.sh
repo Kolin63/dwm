@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+spotify_metadata=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:"org.mpris.MediaPlayer2.Player" string:"Metadata")
+spotify_artist=$(echo "$spotify_metadata" | grep -A 2 "xesam:artist" | tail -1 | cut -d '"' -f 2)
+spotify_title=$(echo "$spotify_metadata" | grep -A 1 "xesam:title" | tail -1 | cut -d '"' -f 2)
+if [[ ! "$spotify_title" == "" ]]; then
+  spotify=" $spotify_title - $spotify_artist "
+fi
+
 battery_raw=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0)
 battery_present=""
 battery_state=""
@@ -47,7 +54,7 @@ if [[ "$battery_present" == "yes" ]]; then
   elif [ $battery_percentage -le 100 ]; then
     battery="󰁹 $battery_percentage%"
   fi
-  battery+=" $battery_time_to_empty$battery_time_to_full"
+  battery+=" $battery_time_to_empty$battery_time_to_full "
 fi
 
 volume_raw=$(amixer -D pulse get Master)
@@ -56,18 +63,19 @@ if [[ $volume_raw =~ \[([0-9]+)%\] ]]; then
   volume_perc="${BASH_REMATCH[1]}"
 fi
 if   [ $volume_perc -eq 00 ]; then
-  volume="  $volume_perc"
+  volume="  $volume_perc% "
 elif [ $volume_perc -le 50 ]; then
-  volume="  $volume_perc"
+  volume="  $volume_perc% "
 else
-  volume="  $volume_perc"
+  volume="  $volume_perc% "
 fi
 
-date=$(date +"%a %b %d %Y")
+date=$(date +"%a %b %d %Y ")
 time=$(date +"%I:%M")
 
-status+="\x03 $battery  "
-status+="\x03 $volume%  "
-status+="\x03 $date  "
-status+="\x08 $time  "
+status+="\x09 $spotify"
+status+="\x03 $battery"
+status+="\x0a $volume"
+status+="\x03 $date"
+status+="\x08 $time"
 xsetroot -name "$(echo -e $status)"

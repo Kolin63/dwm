@@ -36,6 +36,8 @@ static const char *colors[][3]      = {
   /* red          \x06   */   { col_red,    col_gray1,  col_gray1 }, 
   /* yellow       \x07   */   { col_yellow, col_gray1,  col_gray1 }, 
   /* white        \x08   */   { col_white,  col_gray1,  col_gray1 }, 
+  /* spotify      \x09   */   { "#1DB954",  col_gray1,  col_gray1 }, 
+  /* gruvboxblue  \x0a   */   { "#458588",  col_gray1,  col_gray1 }, 
 };
 
 /* tagging */
@@ -80,9 +82,15 @@ static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, "-fn", dmenu
 static const char *termcmd[]       = { "alacritty", NULL };
 static const char *browcmd[]       = { "qutebrowser", NULL };
 static const char *mousecmd[]      = { "mouse", NULL };
+
 static const char *volumeupcmd[]   = { "amixer", "-D", "pulse", "set", "Master", "10%+", NULL };
 static const char *volumedowncmd[] = { "amixer", "-D", "pulse", "set", "Master", "10%-", NULL };
 static const char *volumemutecmd[] = { "amixer", "-D", "pulse", "set", "Master", "0%", NULL };
+
+static const char *musicplay[]     = { "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.PlayPause", NULL };
+static const char *musicstop[]     = { "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.Stop", NULL };
+static const char *musicprev[]     = { "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.Previous", NULL };
+static const char *musicnext[]     = { "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.Next", NULL };
 
 static const Key keys[] = {
   /* modifier                     key        function        argument */
@@ -90,9 +98,16 @@ static const Key keys[] = {
   { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
   { MODKEY,                       XK_semicolon, spawn,       {.v = browcmd } },
   { MODKEY,                       XK_m,      spawn,          {.v = mousecmd } },
+
   { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volumeupcmd } },
   { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = volumedowncmd } },
   { 0,                            XF86XK_AudioMute, spawn,   {.v = volumemutecmd } },
+
+  { 0,                            XF86XK_AudioPlay, spawn,   {.v = musicplay } },
+  { 0,                            XF86XK_AudioStop, spawn,   {.v = musicstop } },
+  { 0,                            XF86XK_AudioPrev, spawn,   {.v = musicprev } },
+  { 0,                            XF86XK_AudioNext, spawn,   {.v = musicnext } },
+
   { MODKEY,                       XK_b,      togglebar,      {0} },
   { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
   { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -112,6 +127,7 @@ static const Key keys[] = {
   { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
   { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
   { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+
   TAGKEYS(                        XK_1,                      0)
   TAGKEYS(                        XK_2,                      1)
   TAGKEYS(                        XK_3,                      2)
@@ -121,6 +137,7 @@ static const Key keys[] = {
   TAGKEYS(                        XK_7,                      6)
   TAGKEYS(                        XK_8,                      7)
   TAGKEYS(                        XK_9,                      8)
+
   { MODKEY|ShiftMask,             XK_Escape, quit,           {0} },
 };
 
