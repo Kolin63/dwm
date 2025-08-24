@@ -71,7 +71,7 @@ else
 fi
 
 date=$(date +"%a %b %d %Y ")
-time=$(date +"%I:%M")
+time=$(date +"%I:%M %p")
 
 status+="\x09 $spotify"
 status+="\x03 $battery"
