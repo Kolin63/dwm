@@ -83,8 +83,8 @@ static const char *termcmd[]       = { "alacritty", NULL };
 static const char *browcmd[]       = { "qutebrowser", NULL };
 static const char *mousecmd[]      = { "mouse", NULL };
 
-static const char *volumeupcmd[]   = { "amixer", "-D", "pulse", "set", "Master", "10%+", NULL };
-static const char *volumedowncmd[] = { "amixer", "-D", "pulse", "set", "Master", "10%-", NULL };
+static const char *volumeupcmd[]   = { "amixer", "-D", "pulse", "set", "Master", "5%+", NULL };
+static const char *volumedowncmd[] = { "amixer", "-D", "pulse", "set", "Master", "5%-", NULL };
 static const char *volumemutecmd[] = { "amixer", "-D", "pulse", "set", "Master", "0%", NULL };
 
 static const char *musicplay[]     = { "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.PlayPause", NULL };
