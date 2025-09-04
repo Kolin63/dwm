@@ -97,7 +97,7 @@ static const Key keys[] = {
   { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
   { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
   { MODKEY,                       XK_semicolon, spawn,       {.v = browcmd } },
-  { MODKEY,                       XK_m,      spawn,          {.v = mousecmd } },
+  { MODKEY,                       XK_c,      spawn,          {.v = mousecmd } },
 
   { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volumeupcmd } },
   { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = volumedowncmd } },
