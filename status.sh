@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if lsof +D ~/Videos 2>/dev/null | grep -q obs; then
+  obs=" Recording "
+fi
+
 spotify_metadata=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:"org.mpris.MediaPlayer2.Player" string:"Metadata")
 spotify_artist=$(echo "$spotify_metadata" | grep -A 2 "xesam:artist" | tail -1 | cut -d '"' -f 2)
 spotify_title=$(echo "$spotify_metadata" | grep -A 1 "xesam:title" | tail -1 | cut -d '"' -f 2)
@@ -73,6 +77,7 @@ fi
 date=$(date +"%a %b %d %Y ")
 time=$(date +"%I:%M %p")
 
+status+="\x06 $obs"
 status+="\x09 $spotify"
 status+="\x03 $battery"
 status+="\x0a $volume"
