@@ -28,16 +28,16 @@ static const char col_white[]       = "#ffffff";
 
 static const char *colors[][3]      = {
   /*                            fg          bg          border   */
-  /* SchemeNorm   \x01   */   { col_gray3,  col_gray1,  col_gray2 }, 
-  /* SchemeSel    \x02   */   { col_gray4,  col_cyan,   col_cyan  }, 
-  /* gray         \x03   */   { "#999999",  col_gray1,  col_gray1 }, 
-  /* cyan         \x04   */   { col_cyan,   col_gray1,  col_gray1 }, 
-  /* black        \x05   */   { col_black,  col_gray1,  col_gray1 }, 
-  /* red          \x06   */   { col_red,    col_gray1,  col_gray1 }, 
-  /* yellow       \x07   */   { col_yellow, col_gray1,  col_gray1 }, 
-  /* white        \x08   */   { col_white,  col_gray1,  col_gray1 }, 
-  /* spotify      \x09   */   { "#1DB954",  col_gray1,  col_gray1 }, 
-  /* gruvboxblue  \x0a   */   { "#458588",  col_gray1,  col_gray1 }, 
+  /* SchemeNorm   \x01   */   { col_gray3,  col_gray1,  col_gray2 },
+  /* SchemeSel    \x02   */   { col_gray4,  col_cyan,   col_cyan  },
+  /* gray         \x03   */   { "#999999",  col_gray1,  col_gray1 },
+  /* cyan         \x04   */   { col_cyan,   col_gray1,  col_gray1 },
+  /* black        \x05   */   { col_black,  col_gray1,  col_gray1 },
+  /* red          \x06   */   { col_red,    col_gray1,  col_gray1 },
+  /* yellow       \x07   */   { col_yellow, col_gray1,  col_gray1 },
+  /* white        \x08   */   { col_white,  col_gray1,  col_gray1 },
+  /* spotify      \x09   */   { "#1DB954",  col_gray1,  col_gray1 },
+  /* gruvboxblue  \x0a   */   { "#458588",  col_gray1,  col_gray1 },
 };
 
 /* tagging */
