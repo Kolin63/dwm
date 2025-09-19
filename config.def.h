@@ -48,9 +48,16 @@ static const Rule rules[] = {
    *  WM_CLASS(STRING) = instance, class
    *  WM_NAME(STRING) = title
    */
-  /* class      instance    title       tags mask     isfloating   monitor */
-  { "Gimp",     NULL,       NULL,       0,            1,           -1 },
-  { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+  /* class                            instance    title       tags mask     isfloating   monitor */
+  { "qutebrowser",                    NULL,       NULL,       1 << 1,       0,           -1 },
+  { "firefox_firefox",                NULL,       NULL,       1 << 2,       0,           -1 },
+  { "FreeCAD",                        NULL,       NULL,       1 << 3,       0,           -1 },
+  { "BambuStudio",                    NULL,       NULL,       1 << 3,       0,           -1 },
+  { "BoltLauncher",                   NULL,       NULL,       1 << 4,       0,           -1 },
+  { "PrismLauncher",                  NULL,       NULL,       1 << 4,       0,           -1 },
+  { "net-runelite-launcher-Launcher", NULL,       NULL,       1 << 4,       1,           -1 },
+  { "net-runelite-client-RuneLite",   NULL,       NULL,       1 << 4,       1,           -1 },
+  { "Spotify",                        NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
