@@ -60,6 +60,7 @@ static const Rule rules[] = {
   { "net-runelite-launcher-Launcher", NULL,       NULL,       1 << 4,       1,           -1 },
   { "net-runelite-client-RuneLite",   NULL,       NULL,       1 << 4,       1,           -1 },
   { "steam",                          NULL,       NULL,       1 << 4,       0,           -1 },
+  { "Lutris",                         NULL,       NULL,       1 << 4,       0,           -1 },
   { "Spotify",                        NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
