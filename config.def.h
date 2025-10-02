@@ -9,6 +9,8 @@
    dwm-statuscolors-20220322-bece862.diff
    */
 
+// clang-format off
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -57,6 +59,7 @@ static const Rule rules[] = {
   { "PrismLauncher",                  NULL,       NULL,       1 << 4,       0,           -1 },
   { "net-runelite-launcher-Launcher", NULL,       NULL,       1 << 4,       1,           -1 },
   { "net-runelite-client-RuneLite",   NULL,       NULL,       1 << 4,       1,           -1 },
+  { "steam",                          NULL,       NULL,       1 << 4,       0,           -1 },
   { "Spotify",                        NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
