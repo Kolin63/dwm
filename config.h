@@ -6,8 +6,7 @@
    Kolin63's dwm build
 
    patches applied:
-   dwm-statuscolors-20220322-bece862.diff
-   */
+*/
 
 // clang-format off
 
