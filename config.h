@@ -7,6 +7,7 @@
 Kolin63's dwm build
 
 patches applied:
+dwm-statuscolors-20220322-bece862.diff
 dwm-vanitygaps-20190508-6.2.diff
 
 */
