@@ -3,9 +3,12 @@
 #include <X11/XF86keysym.h>
 
 /*
-   Kolin63's dwm build
 
-   patches applied:
+Kolin63's dwm build
+
+patches applied:
+dwm-vanitygaps-20190508-6.2.diff
+
 */
 
 // clang-format off
