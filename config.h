@@ -9,6 +9,7 @@ Kolin63's dwm build
 patches applied:
 dwm-statuscolors-20220322-bece862.diff
 dwm-vanitygaps-20190508-6.2.diff
+dwm-actualfullscreen-20211013-cb3f58a.diff
 
 */
 
@@ -173,10 +174,11 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+  { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
   { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 
   { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
   { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
