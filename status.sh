@@ -63,7 +63,7 @@ fi
 
 volume_raw=$(amixer -D pulse get Master)
 volume_perc=""
-if [[ $volume_raw =~ \[([0-9]+)%\] ]]; then 
+if [[ $volume_raw =~ \[([0-9]+)%\] ]]; then
   volume_perc="${BASH_REMATCH[1]}"
 fi
 if   [ $volume_perc -eq 00 ]; then
@@ -83,4 +83,4 @@ status+="\x03 $battery"
 status+="\x0a $volume"
 status+="\x03 $date"
 status+="\x08 $time"
-xsetroot -name "$(echo -e $status)"
+xsetroot -name "$(echo -e "$status")"
