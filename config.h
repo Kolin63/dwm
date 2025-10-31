@@ -1,6 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 #include <X11/XF86keysym.h>
+#include <X11/keysym.h>
 
 /*
 
@@ -131,6 +132,11 @@ static const Key keys[] = {
   { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volumeupcmd } },
   { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = volumedowncmd } },
   { 0,                            XF86XK_AudioMute, spawn,   {.v = volumemutecmd } },
+
+  // run visudo then add this line
+  // colin   ALL=(ALL) NOPASSWD: /usr/bin/brightnessctl
+  { 0,                            XF86XK_MonBrightnessUp, spawn, { .v = (const char*[]){ "sudo", "brightnessctl", "s", "+5%", NULL } } },
+  { 0,                            XF86XK_MonBrightnessDown, spawn, { .v = (const char*[]){ "sudo", "brightnessctl", "s", "5%-", NULL } } },
 
   { 0,                            XF86XK_AudioPlay, spawn,   {.v = musicplay } },
   { 0,                            XF86XK_AudioStop, spawn,   {.v = musicstop } },
