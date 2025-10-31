@@ -35,9 +35,7 @@ if [[ $battery_raw =~ percentage:[[:space:]]*([0-9]+)% ]]; then
 fi
 
 if [[ "$battery_present" == "yes" ]]; then
-  if [[ "$battery_state" == "charging" ]]; then
-    battery="󰂄 $battery_percentage%"
-  elif [ $battery_percentage -le 10 ]; then
+  if   [ $battery_percentage -le 10 ]; then
     battery="󰁺 $battery_percentage%"
   elif [ $battery_percentage -le 20 ]; then
     battery="󰁻 $battery_percentage%"
@@ -57,6 +55,9 @@ if [[ "$battery_present" == "yes" ]]; then
     battery="󰂂 $battery_percentage%"
   elif [ $battery_percentage -le 100 ]; then
     battery="󰁹 $battery_percentage%"
+  fi
+  if [[ "$battery_state" == "charging" ]]; then
+    battery=" $battery"
   fi
   battery+=" $battery_time_to_empty$battery_time_to_full "
 fi
