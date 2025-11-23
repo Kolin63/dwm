@@ -11,6 +11,13 @@ if [[ ! "$spotify_title" == "" ]]; then
   spotify=" $spotify_title - $spotify_artist "
 fi
 
+mouse_status=$(mousetoggle get)
+if [[ "$mouse_status" == "0" ]]; then
+  mouse="󰍾 Off"
+else
+  mouse="󰍽 On "
+fi
+
 battery_raw=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0)
 battery_present=""
 battery_state=""
@@ -80,6 +87,7 @@ time=$(date +"%I:%M %p")
 
 status+="\x06 $obs"
 status+="\x09 $spotify"
+status+="\x03 $mouse"
 status+="\x03 $battery"
 status+="\x0a $volume"
 status+="\x03 $date"
