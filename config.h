@@ -68,6 +68,7 @@ static const Rule rules[] = {
   { "Blockbench",                     NULL,       NULL,       1 << 2,       0,           -1 },
   { "BambuStudio",                    NULL,       NULL,       1 << 2,       0,           -1 },
   { "Audacity",                       NULL,       NULL,       1 << 2,       0,           -1 },
+  { "MuseScore4",                     NULL,       NULL,       1 << 2,       0,           -1 },
   { "BoltLauncher",                   NULL,       NULL,       1 << 3,       0,           -1 },
   { "PrismLauncher",                  NULL,       NULL,       1 << 3,       0,           -1 },
   { "net-runelite-launcher-Launcher", NULL,       NULL,       1 << 3,       1,           -1 },
