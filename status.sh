@@ -15,7 +15,7 @@ mouse_status=$(mousetoggle get)
 if [[ "$mouse_status" == "0" ]]; then
   mouse="󰍾 Off"
 else
-  mouse="󰍽 On "
+  mouse="󰍽 On"
 fi
 
 battery_raw=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0)
