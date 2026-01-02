@@ -1164,6 +1164,7 @@ void
 monocle(Monitor *m)
 {
 	unsigned int n = 0;
+	unsigned int oe = enablegaps; /* outer gaps enabled */
 	Client *c;
 
 	for (c = m->clients; c; c = c->next)
@@ -1171,8 +1172,13 @@ monocle(Monitor *m)
 			n++;
 	if (n > 0) /* override layout symbol */
 		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n);
+	
+	if (smartgaps == n)
+		oe = 0; /* disable outer gaps if smartgaps is set and only one window */
+	
 	for (c = nexttiled(m->clients); c; c = nexttiled(c->next))
-		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
+		resize(c, m->wx + m->gappov * oe, m->wy + m->gappoh * oe,
+		       m->ww - 2 * c->bw - 2 * m->gappov * oe, m->wh - 2 * c->bw - 2 * m->gappoh * oe, 0);
 }
 
 void
