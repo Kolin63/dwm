@@ -1,3 +1,5 @@
 dwm
 .cache/*
 compile_commands.json
+*.o
+_codeql_detected_source_root
