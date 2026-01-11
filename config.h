@@ -129,7 +129,7 @@ static const Key keys[] = {
   { MODKEY,                       XK_Return, spawn,          {.v = (const char*[]){ "alacritty", NULL } } },
   { MODKEY,                       XK_semicolon, spawn,       {.v = (const char*[]){ "qutebrowser", NULL } } },
 
-  // { MODKEY,                       XK_c,      spawn,          {.v = (const char*[]){ "/home/colin/.dotfiles/scripts/mousetoggle", NULL } } },
+  { MODKEY,                       XK_c,      spawn,          {.v = (const char*[]){ "/home/colin/.dotfiles/scripts/mousetoggle", NULL } } },
   { MODKEY|ShiftMask,             XK_c,      spawn,          {.v = (const char*[]){ "ansiicolor", NULL } } },
   { MODKEY,                       XK_e,      spawn,          {.v = (const char*[]){ "emojiselect", NULL } } },
 
