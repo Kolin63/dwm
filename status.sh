@@ -11,7 +11,7 @@ if [[ ! "$spotify_title" == "" ]]; then
   spotify=" $spotify_title - $spotify_artist "
 fi
 
-mouse_status=$(mousetoggle get)
+mouse_status=$(/home/colin/.dotfiles/scripts/mousetoggle get)
 if [[ "$mouse_status" == "0" ]]; then
   mouse="󰍾 Off"
 else
@@ -69,17 +69,15 @@ if [[ "$battery_present" == "yes" ]]; then
   battery+=" $battery_time_to_empty$battery_time_to_full "
 fi
 
-volume_raw=$(amixer -D pulse get Master)
-volume_perc=""
-if [[ $volume_raw =~ \[([0-9]+)%\] ]]; then
-  volume_perc="${BASH_REMATCH[1]}"
-fi
-if   [ $volume_perc -eq 00 ]; then
-  volume="  $volume_perc% "
-elif [ $volume_perc -le 50 ]; then
-  volume="  $volume_perc% "
+volume_raw=$(pamixer --get-volume)
+if   [ $(pamixer --get-mute) == "true" ]; then
+  volume="  0% "
+elif [ $volume_raw -eq 00 ]; then
+  volume="  $volume_raw% "
+elif [ $volume_raw -le 50 ]; then
+  volume="  $volume_raw% "
 else
-  volume="  $volume_perc% "
+  volume="  $volume_raw% "
 fi
 
 date=$(date +"%a %b %d %Y ")

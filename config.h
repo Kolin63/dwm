@@ -110,9 +110,9 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 
-static const char *volumeupcmd[]   = { "amixer", "-D", "pulse", "set", "Master", "5%+", NULL };
-static const char *volumedowncmd[] = { "amixer", "-D", "pulse", "set", "Master", "5%-", NULL };
-static const char *volumemutecmd[] = { "amixer", "-D", "pulse", "set", "Master", "0%", NULL };
+static const char *volumeupcmd[]   = { "pamixer", "-i", "5", NULL };
+static const char *volumedowncmd[] = { "pamixer", "-d", "5", NULL };
+static const char *volumemutecmd[] = { "pamixer", "-t", NULL };
 
 static const char *musicplay[]     = { "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.PlayPause", NULL };
 static const char *musicstop[]     = { "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.Stop", NULL };
@@ -129,7 +129,7 @@ static const Key keys[] = {
   { MODKEY,                       XK_Return, spawn,          {.v = (const char*[]){ "alacritty", NULL } } },
   { MODKEY,                       XK_semicolon, spawn,       {.v = (const char*[]){ "qutebrowser", NULL } } },
 
-  { MODKEY,                       XK_c,      spawn,          {.v = (const char*[]){ "mousetoggle", NULL } } },
+  // { MODKEY,                       XK_c,      spawn,          {.v = (const char*[]){ "/home/colin/.dotfiles/scripts/mousetoggle", NULL } } },
   { MODKEY|ShiftMask,             XK_c,      spawn,          {.v = (const char*[]){ "ansiicolor", NULL } } },
   { MODKEY,                       XK_e,      spawn,          {.v = (const char*[]){ "emojiselect", NULL } } },
 
