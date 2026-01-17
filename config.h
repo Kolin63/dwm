@@ -71,6 +71,7 @@ static const Rule rules[] = {
   { "MuseScore4",                     NULL,       NULL,       1 << 2,       0,           -1 },
   { "BoltLauncher",                   NULL,       NULL,       1 << 3,       0,           -1 },
   { "PrismLauncher",                  NULL,       NULL,       1 << 3,       0,           -1 },
+  { "hytale-launcher",                NULL,       NULL,       1 << 3,       0,           -1 },
   { "net-runelite-launcher-Launcher", NULL,       NULL,       1 << 3,       1,           -1 },
   { "net-runelite-client-RuneLite",   NULL,       NULL,       1 << 3,       1,           -1 },
   { "steam",                          NULL,       NULL,       1 << 3,       0,           -1 },
