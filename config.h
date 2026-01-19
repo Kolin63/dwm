@@ -120,9 +120,8 @@ static const char *musicstop[]     = { "dbus-send", "--print-reply", "--dest=org
 static const char *musicprev[]     = { "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.Previous", NULL };
 static const char *musicnext[]     = { "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.Next", NULL };
 
-static const char *screenshotwhole[]       = { "sh", "-c", "gnome-screenshot -c -f \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png\"", NULL };
-static const char *screenshotarea[]        = { "sh", "-c", "gnome-screenshot -c -a -f \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png\"", NULL };
-static const char *screenshotinteractive[] = { "sh", "-c", "gnome-screenshot -c -i -f \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png\"", NULL };
+static const char *screenshotwhole[]       = { "sh", "-c", "flameshot screen -c -p \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png\"", NULL };
+static const char *screenshotgui[]         = { "sh", "-c", "flameshot gui    -c -p \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png\"", NULL };
 
 static const Key keys[] = {
   /* modifier                     key        function        argument */
@@ -149,8 +148,7 @@ static const Key keys[] = {
   { 0,                            XF86XK_AudioNext, spawn,   {.v = musicnext } },
 
   { 0,                            XK_Print, spawn,       {.v = screenshotwhole} },
-  { ShiftMask,                    XK_Print, spawn,       {.v = screenshotarea} },
-  { ControlMask,                  XK_Print, spawn,       {.v = screenshotinteractive} },
+  { ControlMask,                  XK_Print, spawn,       {.v = screenshotgui} },
 
   { MODKEY,                       XK_b,      togglebar,      {0} },
 
