@@ -109,7 +109,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[]      = { "/home/colin/.dotfiles/scripts/dmenuappselect", NULL };
 
 static const char *volumeupcmd[]   = { "pamixer", "-i", "5", NULL };
 static const char *volumedowncmd[] = { "pamixer", "-d", "5", NULL };
@@ -130,8 +130,8 @@ static const Key keys[] = {
   { MODKEY,                       XK_semicolon, spawn,       {.v = (const char*[]){ "qutebrowser", NULL } } },
 
   { MODKEY,                       XK_c,      spawn,          {.v = (const char*[]){ "/home/colin/.dotfiles/scripts/mousetoggle", NULL } } },
-  { MODKEY|ShiftMask,             XK_c,      spawn,          {.v = (const char*[]){ "ansiicolor", NULL } } },
-  { MODKEY,                       XK_e,      spawn,          {.v = (const char*[]){ "emojiselect", NULL } } },
+  { MODKEY|ShiftMask,             XK_c,      spawn,          {.v = (const char*[]){ "/home/colin/.dotfiles/scripts/ansiicolor", NULL } } },
+  { MODKEY,                       XK_e,      spawn,          {.v = (const char*[]){ "/home/colin/.dotfiles/scripts/emojiselect", NULL } } },
 
   { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volumeupcmd } },
   { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = volumedowncmd } },
