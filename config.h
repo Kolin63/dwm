@@ -51,6 +51,7 @@ static const char *colors[][3]      = {
   /* white        \x08   */   { col_white,  col_gray1,  col_gray1 },
   /* spotify      \x09   */   { "#1DB954",  col_gray1,  col_gray1 },
   /* gruvboxblue  \x0a   */   { "#458588",  col_gray1,  col_gray1 },
+  /* gruvboxred   \x0b   */   { "#fb4934",  col_gray1,  col_gray1 },
 };
 
 /* tagging */
@@ -116,10 +117,10 @@ static const char *volumeupcmd[]   = { "pamixer", "-i", "5", NULL };
 static const char *volumedowncmd[] = { "pamixer", "-d", "5", NULL };
 static const char *volumemutecmd[] = { "pamixer", "-t", NULL };
 
-static const char *musicplay[]     = { "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.PlayPause", NULL };
-static const char *musicstop[]     = { "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.Stop", NULL };
-static const char *musicprev[]     = { "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.Previous", NULL };
-static const char *musicnext[]     = { "dbus-send", "--print-reply", "--dest=org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player.Next", NULL };
+static const char *musicplay[]     = { "playerctl", "play-pause", NULL };
+static const char *musicstop[]     = { "playerctl", "stop", NULL };
+static const char *musicprev[]     = { "playerctl", "previous", NULL };
+static const char *musicnext[]     = { "playerctl", "next", NULL };
 
 static const char *screenshotwhole[]       = { "sh", "-c", "flameshot screen -c -p \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png\"", NULL };
 static const char *screenshotgui[]         = { "sh", "-c", "flameshot gui    -c -p \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png\"", NULL };
