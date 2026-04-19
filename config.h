@@ -65,6 +65,7 @@ static const Rule rules[] = {
   /* class                            instance    title       tags mask     isfloating   monitor */
   { "qutebrowser",                    NULL,       NULL,       1 << 1,       0,           -1 },
   { "firefox_firefox",                NULL,       NULL,       1 << 1,       0,           -1 },
+  { "firefox",                        NULL,       NULL,       1 << 1,       0,           -1 },
   { "FreeCAD",                        NULL,       NULL,       1 << 2,       0,           -1 },
   { "Blockbench",                     NULL,       NULL,       1 << 2,       0,           -1 },
   { "BambuStudio",                    NULL,       NULL,       1 << 2,       0,           -1 },
@@ -129,7 +130,7 @@ static const Key keys[] = {
   /* modifier                     key        function        argument */
   { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
   { MODKEY,                       XK_Return, spawn,          {.v = (const char*[]){ "alacritty", NULL } } },
-  { MODKEY,                       XK_semicolon, spawn,       {.v = (const char*[]){ "qutebrowser", NULL } } },
+  { MODKEY,                       XK_semicolon, spawn,       {.v = (const char*[]){ "firefox", NULL } } },
 
   { MODKEY,                       XK_c,      spawn,          {.v = (const char*[]){ "/home/colin/.dotfiles/scripts/mousetoggle", NULL } } },
   { MODKEY|ShiftMask,             XK_c,      spawn,          {.v = (const char*[]){ "/home/colin/.dotfiles/scripts/ansiicolor", NULL } } },

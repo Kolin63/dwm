@@ -9,7 +9,7 @@ player_name=$(playerctl metadata -f "{{playerName}}")
 player_prefix=""
 if [[ "$player_name" == "spotify" ]]; then
   player_prefix="\x09"
-elif [[ "$player_name" == "chromium" ]]; then
+elif [[ "$player_name" == "chromium" || "$player_name" == "firefox" ]]; then
   player_prefix="\x0b󰖟"
 fi
 
