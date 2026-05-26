@@ -4,7 +4,8 @@ if lsof +D ~/Videos 2>/dev/null | grep -q obs; then
   obs=" Recording "
 fi
 
-player_metadata=$(playerctl metadata -f "{{title}} - {{artist}}")
+player_title=$(playerctl metadata -f "{{title}}")
+player_artist=$(playerctl metadata -f "{{artist}}")
 player_name=$(playerctl metadata -f "{{playerName}}")
 player_prefix=""
 if [[ "$player_name" == "spotify" ]]; then
@@ -12,9 +13,11 @@ if [[ "$player_name" == "spotify" ]]; then
 elif [[ "$player_name" == "chromium" || "$player_name" == "firefox" ]]; then
   player_prefix="\x0b󰖟"
 fi
-
-if [[ ! -z "$player_metadata" ]]; then
-  player="$player_prefix $player_metadata "
+if [[ ! -z "$player_artist" ]]; then
+  player_artist=" - $player_artist"
+fi
+if [[ ! -z "$player_title" ]]; then
+  player="$player_prefix ${player_title}${player_artist} "
 fi
 
 mouse_status=$(/home/colin/.dotfiles/scripts/mousetoggle get)
