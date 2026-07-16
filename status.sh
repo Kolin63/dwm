@@ -75,7 +75,7 @@ if [[ "$battery_present" == "yes" ]]; then
   if [[ "$battery_state" == "charging" ]]; then
     battery=" $battery"
   fi
-  battery+=" $battery_time_to_empty$battery_time_to_full "
+  battery+=" $battery_time_to_empty$battery_time_to_full"
 fi
 
 volume_raw=$(pamixer --get-volume)
